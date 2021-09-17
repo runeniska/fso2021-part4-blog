@@ -1,4 +1,6 @@
-const likes = require('../utils/list_helper').totalLikes
+const listHelper = require('../utils/list_helper')
+const likes = listHelper.totalLikes
+const favorite = listHelper.favoriteBlog
 
 // Blog data
 const listWithOneBlog = [
@@ -74,5 +76,11 @@ describe('total likes', () => {
 
   test('of a bigger list is calculated right', () => {
     expect(likes(blogs)).toBe(36)
+  })
+})
+
+describe('favorite blog is', () => {
+  test('found', () => {
+    expect(favorite(blogs)).toEqual(blogs[2])
   })
 })
