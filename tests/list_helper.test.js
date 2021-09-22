@@ -1,6 +1,7 @@
 const listHelper = require('../utils/list_helper')
 const likes = listHelper.totalLikes
 const favorite = listHelper.favoriteBlog
+const mostBlogs = listHelper.mostBlogs
 
 // Blog data
 const listWithOneBlog = [
@@ -79,8 +80,19 @@ describe('total likes', () => {
   })
 })
 
-describe('favorite blog is', () => {
-  test('found', () => {
+describe('4.5 find', () => {
+  test('the favorite blog', () => {
     expect(favorite(blogs)).toEqual(blogs[2])
+  })
+})
+
+describe('4.6 find', () => {
+  test('the writer with most blog posts', () => {
+    expect(mostBlogs(blogs)).toEqual(
+      {
+        author: "Robert C. Martin",
+        blogs: 3
+      }
+    )
   })
 })
