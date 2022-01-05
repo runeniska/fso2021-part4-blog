@@ -46,7 +46,7 @@ test('each blog includes "id" field', async () => {
   response.body.forEach(blog => expect(blog.id).toBeDefined())
 })
 
-test.only('add blog with POST method', async () => {
+test('add blog with POST method', async () => {
   const blog = {
     "title": "New Blog 4",
     "author": "New Person 4",
@@ -67,6 +67,26 @@ test.only('add blog with POST method', async () => {
   expect(response.body).toHaveLength(initialBlogs.length + 1)
   // verify that the added blog is received with GET
   expect(response.body).toContainEqual(addedBlog)
+})
+
+test('"likes" is 0 when given no value', async () => {
+  const blog = {
+    "title": "New Blog 5",
+    "author": "New Person 5",
+    "url": "New URL 5",
+  }
+
+  const postResponse = await api
+    .post('/api/blogs')
+    .send(blog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+
+  const addedBlog = postResponse.body
+  const response = await api.get('/api/blogs')
+
+  expect(addedBlog.likes).toBe(0)
+  expect(response.body).toContainEqual({ ...addedBlog, likes: 0 })
 })
 
 afterAll(() => {
