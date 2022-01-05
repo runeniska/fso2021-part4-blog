@@ -46,6 +46,29 @@ test('each blog includes "id" field', async () => {
   response.body.forEach(blog => expect(blog.id).toBeDefined())
 })
 
+test.only('add blog with POST method', async () => {
+  const blog = {
+    "title": "New Blog 4",
+    "author": "New Person 4",
+    "url": "New URL 4",
+    "likes": 400,
+  }
+
+  const postResponse = await api
+    .post('/api/blogs')
+    .send(blog)
+    .expect(201)
+    .expect('Content-Type', /application\/json/)
+
+  const addedBlog = postResponse.body
+  const response = await api.get('/api/blogs')
+
+  // verify that one blog is added
+  expect(response.body).toHaveLength(initialBlogs.length + 1)
+  // verify that the added blog is received with GET
+  expect(response.body).toContainEqual(addedBlog)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
