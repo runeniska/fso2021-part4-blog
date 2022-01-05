@@ -89,6 +89,34 @@ test('"likes" is 0 when given no value', async () => {
   expect(response.body).toContainEqual({ ...addedBlog, likes: 0 })
 })
 
+describe('blog must include', () => {
+  test('title', async () => {
+    const noTitle = {
+      "author": "New Person 6",
+      "url": "New URL 6",
+      "likes": 0,
+    }
+
+    await api
+      .post('/api/blogs')
+      .send(noTitle)
+      .expect(400)
+  })
+
+  test('url', async () => {
+    const noUrl = {
+      "title": "New Blog 7",
+      "author": "New Person 7",
+      "likes": 0,
+    }
+
+    await api
+      .post('/api/blogs')
+      .send(noUrl)
+      .expect(400)
+  })
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
