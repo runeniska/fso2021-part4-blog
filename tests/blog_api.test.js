@@ -117,6 +117,28 @@ describe('blog must include', () => {
   })
 })
 
+test('get existing blog', async () => {
+  const blogsInDb = await api.get('/api/blogs')
+  const blog = blogsInDb.body[0]
+  await api.get(`/api/blogs/${blog.id}`).expect(200)
+})
+
+test('delete existing blog', async () => {
+  const blogsInDb = await api.get('/api/blogs')
+  const blog = blogsInDb.body[0]
+  await api.delete(`/api/blogs/${blog.id}`).expect(204)
+})
+
+test('update existing blog', async () => {
+  const blogsInDb = await api.get('/api/blogs')
+  const blog = blogsInDb.body[0]
+  const updatedBlog = {...blog, likes: 999}
+  await api
+    .put(`/api/blogs/${blog.id}`)
+    .send(updatedBlog)
+    .expect(200)
+})
+
 afterAll(() => {
   mongoose.connection.close()
 })
