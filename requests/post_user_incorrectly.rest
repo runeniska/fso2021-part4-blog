@@ -1,0 +1,47 @@
+### Short username
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "name": "Short Username",
+    "username": "12",
+    "password": "pwd123"
+}
+
+### Short password
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "name": "Short Pwd",
+    "username": "long enough",
+    "password": "12"
+}
+
+### No username
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "name": "No Username",
+    "password": "pwd123"
+}
+
+### No password
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "name": "No Password",
+    "username": "nopwd"
+}
+
+### Existing username
+POST http://localhost:3003/api/users
+Content-Type: application/json
+
+{
+    "name": "Existing Username",
+    "username": "test",
+    "password": "123123"
+}
