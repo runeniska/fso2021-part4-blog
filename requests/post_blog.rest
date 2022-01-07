@@ -1,6 +1,6 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjYxZDZhODE0OGU1NDA5M2I4NzJjYTYyYSIsImlhdCI6MTY0MTU0MDY5Nn0.eXZXVoGYbuxBp7QM7KtQ085_-UjMjMaF6qVdDYoOjIc
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjYxZDZhODE0OGU1NDA5M2I4NzJjYTYyYSIsImlhdCI6MTY0MTU1NzA4MX0.-kYnQaIB3c4proVn3iRHwAX8ZcXrLDawwyk9g2p0wYM
 
 {
     "title": "Token test",
