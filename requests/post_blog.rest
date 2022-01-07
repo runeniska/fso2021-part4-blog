@@ -1,8 +1,20 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjYxZDZhODE0OGU1NDA5M2I4NzJjYTYyYSIsImlhdCI6MTY0MTU0MDY5Nn0.eXZXVoGYbuxBp7QM7KtQ085_-UjMjMaF6qVdDYoOjIc
 
 {
-    "title": "CCC",
+    "title": "Token test",
+    "author": "New Person",
+    "url": "New URL",
+    "likes": 100
+}
+
+### New blog without authorization
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+
+{
+    "title": "No auth",
     "author": "New Person",
     "url": "New URL",
     "likes": 100
