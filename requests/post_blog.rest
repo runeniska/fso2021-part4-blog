@@ -3,7 +3,7 @@ Content-Type: application/json
 Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3QiLCJpZCI6IjYxZDZhODE0OGU1NDA5M2I4NzJjYTYyYSIsImlhdCI6MTY0MTU1NzA4MX0.-kYnQaIB3c4proVn3iRHwAX8ZcXrLDawwyk9g2p0wYM
 
 {
-    "title": "Token test",
+    "title": "POST OK",
     "author": "New Person",
     "url": "New URL",
     "likes": 100
